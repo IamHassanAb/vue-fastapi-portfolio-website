@@ -3,7 +3,7 @@
 1. **Clone the repository:**
    ```
    git clone <repository-url>
-   cd portfolio
+   cd frontend
    ```
 
 2. **Install dependencies:**
