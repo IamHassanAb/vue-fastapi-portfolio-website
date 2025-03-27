@@ -1,13 +1,13 @@
-# Data Scientist Portfolio
+# Portfolio
 
-This is a portfolio website created for a Data Scientist using Vue.js with a Neumorphism design style. The portfolio showcases the skills, projects, and contact information of the data scientist.
+This is a portfolio website created for myself using Vue.js with a Flat design style. The portfolio showcases the skills, projects, and contact information of.
 
 ## Project Structure
 
 The project is organized as follows:
 
 ```
-data-scientist-portfolio
+portfolio
 ├── backend
 │   ├── main.py
 │   ├── quickstart.py
@@ -63,7 +63,7 @@ data-scientist-portfolio
 1. **Clone the repository:**
    ```
    git clone <repository-url>
-   cd data-scientist-portfolio
+   cd portfolio
    ```
 
 2. **Install dependencies:**
