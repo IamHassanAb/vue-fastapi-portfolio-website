@@ -1,0 +1,11 @@
+body {
+    background-color: #000;
+    font-family: 'Exo 2', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    color: #000000; /* White text for dark background */
+    
+}

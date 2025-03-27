@@ -1,0 +1,151 @@
+# =============================================
+# General Development Files
+# =============================================
+.DS_Store
+Thumbs.db
+*.bak
+*.tmp
+*.temp
+*~
+
+# =============================================
+# IDE and Editor Files
+# =============================================
+.vscode/
+.vscode-test/
+*.code-workspace
+*.swp
+*.swo
+.idea/
+*.sublime-workspace
+*.sublime-project
+.history/
+.tern-port
+
+# =============================================
+# Python Specific
+# =============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+svelte/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.manifest
+*.spec
+.pytest_cache/
+.mypy_cache/
+.settings/
+.ropeproject/
+.ipynb_checkpoints
+
+# =============================================
+# Node.js/JavaScript
+# =============================================
+node_modules/
+jspm_packages/
+web_modules/
+.npm
+.yarn-integrity
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+*.tgz
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.grunt
+.lock-wscript
+build/Release
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+.node_repl_history
+
+# =============================================
+# Testing and Coverage
+# =============================================
+.coverage
+htmlcov/
+.nyc_output
+*.lcov
+lib-cov/
+coverage/
+
+# =============================================
+# Environment and Secrets
+# =============================================
+.env
+.env.*
+.env.test
+.env.production
+.env.local
+.env.development
+.venv
+env/
+venv/
+ENV/
+credentials.json
+token.json
+*.key
+*.pem
+*.crt
+*.cer
+*.pfx
+*.p12
+*.keystore
+secrets.*
+config.secrets.*
+*_rsa
+*_dsa
+*.cert
+test_rsa_privkey.pem
+
+# =============================================
+# Build Outputs
+# =============================================
+/dist/
+out/
+.next/
+.nuxt/
+.cache/
+.parcel-cache
+public/
+.vuepress/dist
+.temp/
+.docusaurus/
+.serverless/
+.fusebox/
+.dynamodb/
+
+# =============================================
+# Logs
+# =============================================
+logs/
+*.log
+
+# =============================================
+# Database Files
+# =============================================
+*.db
+*.sqlite
+*.sqlite3
