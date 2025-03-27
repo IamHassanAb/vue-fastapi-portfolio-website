@@ -8,28 +8,54 @@ The project is organized as follows:
 
 ```
 data-scientist-portfolio
-├── public
-│   ├── index.html          # Main HTML file for the application
-│   └── favicon.ico         # Favicon for the portfolio website
-├── src
-│   ├── assets
-│   │   └── styles
-│   │       └── neumorphism.css  # CSS styles implementing Neumorphism design
-│   ├── components
-│   │   ├── About.vue       # Component displaying information about the data scientist
-│   │   ├── Contact.vue     # Component providing contact information
-│   │   ├── Home.vue        # Component serving as the landing page
-│   │   └── Projects.vue    # Component listing the data scientist's projects
-│   ├── views
-│   │   ├── AboutView.vue   # View using the About component
-│   │   ├── ContactView.vue # View using the Contact component
-│   │   ├── HomeView.vue    # View using the Home component
-│   │   └── ProjectsView.vue # View using the Projects component
-│   ├── App.vue             # Root component of the Vue application
-│   └── main.js             # Entry point of the Vue application
-├── package.json            # Configuration file for npm
-├── README.md               # Documentation for the project
-└── vue.config.js           # Configuration settings for the Vue CLI
+├── backend
+│   ├── main.py
+│   ├── quickstart.py
+│   └── utils.py
+├── frontend
+│   ├── LICENSE
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── public
+│   │   ├── assets
+│   │   │   └── Hassan_Abbas_Resume_AI_ML_Engineer_Software_Developer.pdf
+│   │   ├── background_gif.gif
+│   │   ├── background.jpg
+│   │   ├── background_vector.svg
+│   │   ├── favicon.ico
+│   │   ├── images
+│   │   │   ├── fastapi.png
+│   │   │   ├── langchain.png
+│   │   │   ├── mysql.png
+│   │   │   ├── python.png
+│   │   │   ├── quarkus.png
+│   │   │   └── scikitlearn.png
+│   │   ├── index.html
+│   │   └── pixel_character.png
+│   ├── README.md
+│   ├── src
+│   │   ├── App.vue
+│   │   ├── assets
+│   │   │   └── styles
+│   │   │       └── style.css
+│   │   ├── components
+│   │   │   ├── Home.vue
+│   │   │   └── sections
+│   │   │       ├── About.vue
+│   │   │       ├── Contact.vue
+│   │   │       ├── Header.vue
+│   │   │       ├── NotFound.vue
+│   │   │       └── Projects.vue
+│   │   ├── main.js
+│   │   ├── router
+│   │   │   └── index.js
+│   │   └── views
+│   │       ├── AboutView.vue
+│   │       ├── ContactView.vue
+│   │       ├── HomeView.vue
+│   │       └── ProjectsView.vue
+│   └── vue.config.js
+└── LICENSE
 ```
 
 ## Setup Instructions
@@ -57,10 +83,7 @@ data-scientist-portfolio
 
 ## Features
 
-- **Neumorphism Design:** The portfolio utilizes a modern Neumorphism design style for a sleek and contemporary look.
-- **Responsive Layout:** The website is designed to be responsive and works well on various screen sizes.
-- **Showcase Projects:** A dedicated section to display projects with descriptions and links.
-- **Contact Form:** A contact section to allow visitors to reach out.
+- **Modern Flat Design**
 
 ## License
 
