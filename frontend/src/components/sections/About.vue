@@ -26,17 +26,20 @@ continuous learning.
           </p>
         </article> -->
 
-        <article class="card skill-grid">
-          <h2>Skills</h2>
-          <div class="decorative-line"></div>
-          <ul class="skill-list">
-            <li v-for="(skill, index) in skills" :key="index" class="card skill-item">
-              <div class="skill-icon"><img :src="skill.source" :style="{scale: skill.scale}"/></div>
-              <span class="skill-label">{{ skill.name }}</span>
-              <div class="skill-progress"></div>
-            </li>
-          </ul>
-        </article>
+          <article class="card skill-grid">
+            <h2>Skills</h2>
+            <div class="decorative-line"></div>
+            <ul class="skill-list">
+              <li v-for="(skill, index) in skills" 
+              :key="index" 
+              class="card skill-item"
+              :style="{'--delay': `${index * 0.15}s`}">
+                <div class="skill-icon"><img :src="skill.source" :style="{scale: skill.scale, z}"/></div>
+                <span class="skill-label">{{ skill.name }}</span>
+                <div class="skill-progress"><p class="skill-description">{{ skill.description }}</p></div>
+              </li>
+            </ul>
+          </article>
       </div>
     </div>
   </section>
@@ -48,16 +51,64 @@ export default {
   data() {
     return {
       skills: [
-        { source: "images/python.png", name: 'Python', progress: '95%' ,scale: 1},
-        { source: 'images/langchain.png', name: 'LangChain', progress: '90%' ,scale: 1},
-        { source: 'images/fastapi.png', name: 'FastAPI', progress: '92%' ,scale: 1},
-        { source: 'images/scikitlearn.png', name: 'Scikit-Learn', progress: '85%' ,scale: 1},
-        { source: "images/mysql.png", name: 'MySQL', progress: '94%' ,scale: 1},
-        { source: 'images/quarkus.png', name: 'Quarkus Java', progress: '88%' ,scale: 1}
+        { 
+          source: "images/python.png", 
+          name: 'Python', 
+          description: 'A high-level, general-purpose programming language focused on readability.', 
+          progress: '95%' ,
+          scale: 1, 
+        },
+        { 
+          source: 'images/langchain.png', 
+          name: 'LangChain', 
+          description: 'A framework focused on integration of LLMs into applications.', 
+          progress: '90%' ,
+          scale: 1
+        },
+        { 
+          source: 'images/fastapi.png', 
+          name: 'FastAPI', 
+          description: 'A fast, async Python framework for building APIs with automatic validation, OpenAPI docs, and high performance, ideal for scalable applications.', 
+          progress: '92%' ,
+          scale: 1
+        },
+        { 
+          source: 'images/scikitlearn.png', 
+          name: 'Scikit-Learn', 
+          description: 'Scikit-learn is a powerful Python library for machine learning, offering simple and efficient tools for data mining, analysis, and modeling.', 
+          progress: '85%' ,
+          scale: 1
+        },
+        { 
+          source: "images/mysql.png", 
+          name: 'MySQL', 
+          description: 'MySQL is a fast, reliable, and open-source relational database management system (RDBMS) widely used for web applications and enterprise solutions.', 
+          progress: '94%' ,
+          scale: 1
+        },
+        { 
+          source: 'images/quarkus.png', 
+          name: 'Quarkus Java', 
+          description: 'Quarkus is a Kubernetes-native Java framework optimized for fast startup, low memory usage, and cloud-native microservices. ', 
+          progress: '88%' ,
+          scale: 1
+        },
       ]
-    }
+    };
+  },
+  mounted() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach(item => observer.observe(item));
   }
-}
+};
 </script>
 
 <style scoped>
@@ -159,13 +210,24 @@ export default {
   background: #f5f7fb;
   border-radius: 8px;
   overflow: hidden;
-  /* width: 500px; */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  animation-delay: var(--delay);
 }
 
-.skill-icon {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+.skill-item.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 .skill-label {
   color: #000000;
@@ -176,6 +238,19 @@ export default {
   z-index: 1;
   margin-bottom: 0;
   align-self: flex-end;
+}
+
+
+
+.skill-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.skill-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
 }
 
 .skill-progress {
@@ -190,6 +265,26 @@ export default {
 
 .skill-item:hover .skill-progress {
   width: 100%; /* Will be set by the inline style */
+
+}
+
+.skill-icon .skill-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.skill-icon:hover .skill-description {
+  opacity: 1;
 }
 
 .body-text {

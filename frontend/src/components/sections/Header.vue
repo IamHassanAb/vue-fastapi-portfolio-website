@@ -2,12 +2,12 @@
     <header class="full-page-header">
         <div class="nav-container">
             <div class="logo">
-                <a href="#home">
-                    <img src="/pixel_character.png" alt="Logo" class="logo-img" />
+                <a href="#">
+                    <img src="images/pixel_character.png" alt="Logo" class="logo-img" />
                 </a>
             </div>
             <nav class="main-nav">
-                <a href="#home" @click.prevent="scrollToSection('home')" class="nav-link">Home</a>
+                <a href="#" @click.prevent="scrollToSection('home')" class="nav-link">Home</a>
                 <a href="#about" @click.prevent="scrollToSection('about')" class="nav-link">About</a>
                 <a href="#projects" @click.prevent="scrollToSection('projects')" class="nav-link">Projects</a>
                 <a href="#contact" @click.prevent="scrollToSection('contact')" class="nav-link">Contact</a>
@@ -20,9 +20,10 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1 class="hero-title">
-                    Hello! <br>
-                    I am Hassan
+                Hello! <br>
+                I am <span>&nbspHassan&nbsp</span>
                 </h1>
+            
                 <p class="hero-subtitle">Software Engineer | AI/ML</p>
             </div>
         </div>
@@ -179,7 +180,15 @@ export default {
     margin-bottom: 1rem;
     color: #64ffda;
 }
-
+.hero-title span {
+    color: #ffffff;
+    background-color: #00ffc3;
+    transition: all 0.3s ease;
+}
+.hero-title span:hover {
+    color: #00ffc3;
+    background-color: #000000;
+}
 .hero-subtitle {
     font-size: clamp(16px, 4vw, 24px);
     color: #8892b0;

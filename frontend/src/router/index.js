@@ -1,26 +1,25 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router' // Change to hash history
 import Home from '../components/Home.vue'
 import NotFound from '../components/sections/NotFound.vue'
 
 const routes = [
   {
-    path: '/',
+    path: '/', // Remove array, use a single path
     name: 'Home',
     component: Home,
-    meta: { scrollSections: true } // Enable section scrolling
+    meta: { scrollSections: true }
   },
   {
-    path: '/:pathMatch(.*)*', // Catch all 404s
+    path: '/:pathMatch(.*)*', // Catch-all for 404s
     name: 'NotFound',
     component: NotFound
   }
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(process.env.NODE_ENV === "production" ? "/vue-fastapi-portfolio-website/" : "/"), // Use hash mode
   routes,
   scrollBehavior(to, from, savedPosition) {
-    // Handle hash links (section scrolling)
     if (to.hash) {
       return {
         el: to.hash,
@@ -28,7 +27,6 @@ const router = createRouter({
         top: 100 // Offset for fixed header
       }
     }
-    // Return to saved position or top
     return savedPosition || { top: 0 }
   }
 })

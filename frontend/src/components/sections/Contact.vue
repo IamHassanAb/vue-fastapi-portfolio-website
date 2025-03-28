@@ -22,7 +22,7 @@
           </div>
         </div>
 
-        <form class="contact-form" @submit.prevent="submitForm('api')">
+        <form class="contact-form" @submit.prevent="submitForm('')">
           <div class="form-group">
             <input 
               type="text" 

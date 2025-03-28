@@ -7,7 +7,8 @@
       </div>
 
       <div class="projects-grid">
-        <article v-for="project in projects" :key="project.id" class="project-card">
+        <article v-for="project in projects" :key="project.id" class="project-card"
+        :style="{'--delay': `${index * 0.15}s`}">
           <div class="project-content">
             <h3 class="project-title">{{ project.title }}</h3>
             <p class="project-description">{{ project.description }}</p>
@@ -66,27 +67,39 @@ Planned future enhancements including PostgreSQL-based cost optimization, real-t
              'Participated in developing 5+ critical services: Mini-Statements, UBPS, Credit-Card Payments, Demand Draft, and Customer Address Change. ' +
              'Collaborated with Stakeholder for the development of these services',
           technologies: ['Quarkus', 'Microservices'],
-          links: [{name:'View Project',link:'/404'}]
+          links: [{name:'View Project',link:process.env.NODE_ENV === "production" ? "/vue-fastapi-portfolio-website/#/503" : "/#/503"}]
         },
         {
           id: 4,
-          title: 'Project Three',
+          title: 'IFRS9',
           description: `Contributed to engineering frontend and backend APIs, achieving latency reduction through Dockerized deployments and code refactoring.
-Participated in developing and delivering RESTful APIs (Flask/Quarkus) and Vue.js dashboards, accelerating transaction speeds and boosting user productivity.
-Collaborated with Stakeholder implementing Agile methodologies to understand and develop requirements.
-Developed with Stakeholder implementing Agile methodologies to understand and develop requirements.`,
+      Participated in developing and delivering RESTful APIs (Flask/Quarkus) and Vue.js dashboards, accelerating transaction speeds and boosting user productivity.
+      Collaborated with Stakeholder implementing Agile methodologies to understand and develop requirements.
+      Developed with Stakeholder implementing Agile methodologies to understand and develop requirements.`,
           technologies: ['Vue.js', 'Flask','Quarkus'],
-          links: [{name:'View Project',link:'/404'}]
+          links: [{name:'View Project',link:process.env.NODE_ENV === "production" ? "/vue-fastapi-portfolio-website/#/503" : "/#/503"}]
         },
         {
           id: 5,
           title: 'Sudoku Solver',
-          description: 'A brief description of Project Three. Implementing scalable backend architecture with modern tools.',
+          description: 'Upcoming project',
           technologies: ['OpenCV', 'Python', 'Keras'],
-          links: [{name:'View Project',link:'/404'}]
+          links: [{name:'View Project',link:process.env.NODE_ENV === "production" ? "/vue-fastapi-portfolio-website/#/503" : "/#/503"}]
         }
       ]
     };
+  },
+  mounted() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const projectItem = document.querySelectorAll('.project-card');
+    projectItem.forEach(item => observer.observe(item));
   }
 };
 </script>
@@ -158,11 +171,32 @@ Developed with Stakeholder implementing Agile methodologies to understand and de
   flex-direction: column;
   justify-content: space-between;
   min-height: 300px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-in-out var(--delay) forwards; /* Adjusted animation timing function */
+}
+
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px); /* Increased hover effect */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Enhanced shadow for hover */
+  transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smoother hover transition */
 }
 
 .project-title {
@@ -224,8 +258,11 @@ Developed with Stakeholder implementing Agile methodologies to understand and de
 }
 
 .project-link:hover .icon {
-  transform: translateX(5px);
+  transform: translateX(8px); /* Increased icon movement */
+  transition: transform 0.4s ease; /* Smoother icon transition */
 }
+
+
 
 @media (max-width: 768px) {
   .gradient-text {

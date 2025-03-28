@@ -7,7 +7,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@nuxt/ui": "^3.0.0",
@@ -20,6 +21,7 @@
     "autoprefixer": "^10.4.21",
     "eslint": "^7.0.0",
     "eslint-plugin-vue": "^7.0.0",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.0.14"
   }
